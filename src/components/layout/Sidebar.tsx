@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  MessageSquareText, 
+  Wallet, 
   Receipt, 
   PieChart, 
   Target, 
@@ -18,7 +18,7 @@ import logo from '@/assets/smartbudget-logo.png';
 
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { path: '/sms', label: 'SMS Input', icon: MessageSquareText },
+  { path: '/budget-settings', label: 'Budget Settings', icon: Wallet },
   { path: '/transactions', label: 'Transactions', icon: Receipt },
   { path: '/reports', label: 'Reports', icon: PieChart },
   { path: '/savings', label: 'Savings Goals', icon: Target },
