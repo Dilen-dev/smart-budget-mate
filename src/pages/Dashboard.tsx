@@ -8,7 +8,7 @@ import { MonthlyTrendChart } from '@/components/dashboard/MonthlyTrendChart';
 import { PendingWithdrawals } from '@/components/dashboard/PendingWithdrawals';
 import { useBudget } from '@/contexts/BudgetContext';
 import { CATEGORY_SPENDING, MONTHLY_DATA } from '@/lib/mockData';
-import { Wallet, TrendingDown, PiggyBank, MessageSquareText } from 'lucide-react';
+import { Wallet, TrendingDown, PiggyBank, SlidersHorizontal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -31,10 +31,10 @@ export default function Dashboard() {
               Here's your financial overview for January 2025
             </p>
           </div>
-          <Link to="/sms">
+          <Link to="/budget-settings">
             <Button className="gap-2">
-              <MessageSquareText className="h-4 w-4" />
-              Add SMS
+              <SlidersHorizontal className="h-4 w-4" />
+              Alter Budget
             </Button>
           </Link>
         </div>

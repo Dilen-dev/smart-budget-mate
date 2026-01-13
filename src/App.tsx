@@ -15,6 +15,7 @@ import Reports from "./pages/Reports";
 import Savings from "./pages/Savings";
 import Achievements from "./pages/Achievements";
 import Settings from "./pages/Settings";
+import BudgetSettings from "./pages/BudgetSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ function AppRoutes() {
       <Route path="/savings" element={<ProtectedRoute><Savings /></ProtectedRoute>} />
       <Route path="/achievements" element={<ProtectedRoute><Achievements /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+      <Route path="/budget-settings" element={<ProtectedRoute><BudgetSettings /></ProtectedRoute>} />
       
       {/* Catch-all */}
       <Route path="*" element={<NotFound />} />
