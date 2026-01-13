@@ -60,16 +60,16 @@ export function Sidebar() {
       `}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-4 border-b border-sidebar-border">
+          <div className="p-5 border-b border-sidebar-border">
             <Link to="/dashboard" className="flex items-center">
-              <img src={logo} alt="SmartBudget" className="h-8 w-auto" />
+              <img src={logo} alt="SmartBudget" className="h-9 w-auto" />
             </Link>
           </div>
 
           {/* User Info */}
-          <div className="px-3 py-3 border-b border-sidebar-border">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-sidebar-primary flex items-center justify-center text-sidebar-primary-foreground font-semibold text-sm">
+          <div className="px-4 py-3 border-b border-sidebar-border">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-sidebar-primary flex items-center justify-center text-sidebar-primary-foreground font-semibold text-sm">
                 {user?.name?.charAt(0) || 'U'}
               </div>
               <div className="flex-1 min-w-0">
@@ -84,7 +84,7 @@ export function Sidebar() {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-2 py-2 space-y-0.5">
+          <nav className="flex-1 px-3 py-3 space-y-1">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               const Icon = item.icon;
@@ -104,12 +104,12 @@ export function Sidebar() {
           </nav>
 
           {/* Logout */}
-          <div className="p-2 border-t border-sidebar-border">
+          <div className="p-3 border-t border-sidebar-border">
             <button 
               onClick={logout}
               className="nav-link w-full text-destructive hover:bg-destructive/10"
             >
-              <LogOut className="h-4 w-4" />
+              <LogOut className="h-5 w-5" />
               <span>Logout</span>
             </button>
           </div>
