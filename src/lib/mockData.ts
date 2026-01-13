@@ -1,0 +1,207 @@
+import { Transaction, Badge, SavingsGoal, Category, MonthlyData, CategorySpending, FinancialSummary } from '@/types';
+
+export const CATEGORIES: Category[] = [
+  { id: 'food', name: 'Food & Groceries', icon: 'UtensilsCrossed', color: 'category-food' },
+  { id: 'transport', name: 'Transport', icon: 'Car', color: 'category-transport' },
+  { id: 'accommodation', name: 'Accommodation', icon: 'Home', color: 'category-accommodation' },
+  { id: 'entertainment', name: 'Entertainment', icon: 'Music', color: 'category-entertainment' },
+  { id: 'utilities', name: 'Utilities', icon: 'Zap', color: 'category-utilities' },
+  { id: 'education', name: 'Education', icon: 'GraduationCap', color: 'category-education' },
+  { id: 'health', name: 'Health', icon: 'Heart', color: 'category-health' },
+  { id: 'other', name: 'Other', icon: 'MoreHorizontal', color: 'category-other' },
+];
+
+export const SAMPLE_TRANSACTIONS: Transaction[] = [
+  {
+    id: 'txn_1',
+    amount: 150.00,
+    type: 'debit',
+    category: 'food',
+    merchant: 'Shoprite Maseru',
+    description: 'Grocery shopping',
+    date: new Date('2025-01-10'),
+    balance: 2850.00,
+    source: 'sms',
+  },
+  {
+    id: 'txn_2',
+    amount: 50.00,
+    type: 'debit',
+    category: 'transport',
+    merchant: 'Taxi',
+    description: 'Taxi to campus',
+    date: new Date('2025-01-09'),
+    balance: 3000.00,
+    source: 'manual',
+  },
+  {
+    id: 'txn_3',
+    amount: 2000.00,
+    type: 'credit',
+    category: 'other',
+    merchant: 'Parent Transfer',
+    description: 'Monthly allowance received',
+    date: new Date('2025-01-05'),
+    balance: 3050.00,
+    source: 'sms',
+  },
+  {
+    id: 'txn_4',
+    amount: 200.00,
+    type: 'withdrawal',
+    category: 'other',
+    merchant: 'FNB ATM',
+    description: 'Cash withdrawal',
+    date: new Date('2025-01-08'),
+    balance: 2850.00,
+    source: 'sms',
+    isWithdrawal: true,
+    cashSpendingRecorded: false,
+  },
+  {
+    id: 'txn_5',
+    amount: 80.00,
+    type: 'debit',
+    category: 'utilities',
+    merchant: 'Vodacom',
+    description: 'Airtime purchase',
+    date: new Date('2025-01-07'),
+    balance: 3050.00,
+    source: 'sms',
+  },
+  {
+    id: 'txn_6',
+    amount: 350.00,
+    type: 'debit',
+    category: 'entertainment',
+    merchant: 'Ster-Kinekor',
+    description: 'Movie tickets',
+    date: new Date('2025-01-06'),
+    balance: 3130.00,
+    source: 'sms',
+  },
+  {
+    id: 'txn_7',
+    amount: 1500.00,
+    type: 'debit',
+    category: 'accommodation',
+    merchant: 'Landlord',
+    description: 'Monthly rent payment',
+    date: new Date('2025-01-01'),
+    balance: 3480.00,
+    source: 'manual',
+  },
+];
+
+export const SAMPLE_BADGES: Badge[] = [
+  {
+    id: 'badge_1',
+    name: 'First Steps',
+    description: 'Logged your first transaction',
+    icon: 'Footprints',
+    earnedAt: new Date('2025-01-01'),
+    requirement: 'Log 1 transaction',
+    progress: 1,
+    maxProgress: 1,
+  },
+  {
+    id: 'badge_2',
+    name: 'Budget Warrior',
+    description: 'Stayed within budget for a full month',
+    icon: 'Shield',
+    earnedAt: new Date('2025-01-10'),
+    requirement: 'Stay within monthly budget',
+    progress: 1,
+    maxProgress: 1,
+  },
+  {
+    id: 'badge_3',
+    name: 'Savings Champion',
+    description: 'Saved M500 or more',
+    icon: 'Trophy',
+    requirement: 'Save M500',
+    progress: 350,
+    maxProgress: 500,
+  },
+  {
+    id: 'badge_4',
+    name: 'Consistent Logger',
+    description: 'Logged transactions for 7 days straight',
+    icon: 'Calendar',
+    requirement: 'Log daily for 7 days',
+    progress: 5,
+    maxProgress: 7,
+  },
+  {
+    id: 'badge_5',
+    name: 'Category Master',
+    description: 'Categorized 50 transactions',
+    icon: 'Tags',
+    requirement: 'Categorize 50 transactions',
+    progress: 12,
+    maxProgress: 50,
+  },
+  {
+    id: 'badge_6',
+    name: 'Smart Saver',
+    description: 'Completed a savings challenge',
+    icon: 'Sparkles',
+    requirement: 'Complete any savings challenge',
+    progress: 0,
+    maxProgress: 1,
+  },
+];
+
+export const SAMPLE_SAVINGS_GOALS: SavingsGoal[] = [
+  {
+    id: 'goal_1',
+    name: 'Emergency Fund',
+    targetAmount: 2000,
+    currentAmount: 850,
+    deadline: new Date('2025-06-30'),
+    createdAt: new Date('2025-01-01'),
+  },
+  {
+    id: 'goal_2',
+    name: 'New Laptop',
+    targetAmount: 5000,
+    currentAmount: 1200,
+    deadline: new Date('2025-12-31'),
+    createdAt: new Date('2025-01-01'),
+  },
+];
+
+export const MONTHLY_DATA: MonthlyData[] = [
+  { month: 'Aug', expenses: 2800, income: 3500, savings: 700 },
+  { month: 'Sep', expenses: 3200, income: 3500, savings: 300 },
+  { month: 'Oct', expenses: 2600, income: 3200, savings: 600 },
+  { month: 'Nov', expenses: 3100, income: 3500, savings: 400 },
+  { month: 'Dec', expenses: 3800, income: 4000, savings: 200 },
+  { month: 'Jan', expenses: 2330, income: 3000, savings: 670 },
+];
+
+export const CATEGORY_SPENDING: CategorySpending[] = [
+  { category: 'food', amount: 680, percentage: 29 },
+  { category: 'accommodation', amount: 1500, percentage: 35 },
+  { category: 'transport', amount: 320, percentage: 14 },
+  { category: 'utilities', amount: 180, percentage: 8 },
+  { category: 'entertainment', amount: 250, percentage: 11 },
+  { category: 'other', amount: 70, percentage: 3 },
+];
+
+export const FINANCIAL_SUMMARY: FinancialSummary = {
+  totalBalance: 2850.00,
+  monthlyExpenses: 2330.00,
+  monthlySavings: 670.00,
+  healthScore: 72,
+  pendingWithdrawals: 1,
+};
+
+export const SAMPLE_USER = {
+  id: 'user_1',
+  name: 'Thabo Mokoena',
+  email: 'thabo@nul.ls',
+  university: 'National University of Lesotho',
+  monthlyBudget: 3500,
+  savingsGoal: 500,
+};
