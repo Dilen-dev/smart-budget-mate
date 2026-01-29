@@ -16,47 +16,49 @@ export default function Dashboard() {
 
   const formatCurrency = (amount: number) => `M${amount.toFixed(2)}`;
 
+  const remainingBudget = 3500 - financialSummary.monthlyExpenses;
+
   return (
     <MainLayout>
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-bold font-heading">
+            <h1 className="text-xl lg:text-2xl font-bold font-heading">
               Welcome back, {user?.name?.split(' ')[0] || 'Student'}!
             </h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground text-sm mt-0.5">
               Here's your financial overview for January 2025
             </p>
           </div>
-          <Link to="/budget-settings">
-            <Button className="gap-2">
-              <SlidersHorizontal className="h-4 w-4" />
-              Alter Budget
-            </Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            {pendingWithdrawals.length > 0 && (
+              <PendingWithdrawals withdrawals={pendingWithdrawals} />
+            )}
+            <Link to="/budget-settings">
+              <Button size="sm" className="gap-2">
+                <SlidersHorizontal className="h-4 w-4" />
+                Alter Budget
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        {/* Pending Withdrawals Alert */}
-        {pendingWithdrawals.length > 0 && (
-          <PendingWithdrawals withdrawals={pendingWithdrawals} />
-        )}
-
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <StatCard
-            title="Total Balance"
-            value={formatCurrency(financialSummary.totalBalance)}
+            title="Total Budget"
+            value={formatCurrency(3500)}
             icon={Wallet}
             variant="primary"
             trend={{ value: 5.2, isPositive: true }}
           />
           <StatCard
-            title="Monthly Expenses"
-            value={formatCurrency(financialSummary.monthlyExpenses)}
-            subtitle="of M3,500 budget"
+            title="Remaining Budget"
+            value={formatCurrency(remainingBudget)}
+            subtitle={`${((remainingBudget / 3500) * 100).toFixed(0)}% remaining`}
             icon={TrendingDown}
-            trend={{ value: 12.3, isPositive: false }}
+            trend={{ value: 12.3, isPositive: remainingBudget > 0 }}
           />
           <StatCard
             title="Savings This Month"
@@ -69,7 +71,7 @@ export default function Dashboard() {
         </div>
 
         {/* Charts Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <SpendingChart data={CATEGORY_SPENDING} />
           <RecentTransactions transactions={transactions} />
         </div>
