@@ -1,6 +1,7 @@
 import { MainLayout } from '@/components/layout/MainLayout';
 import { SpendingChart } from '@/components/dashboard/SpendingChart';
 import { MonthlyTrendChart } from '@/components/dashboard/MonthlyTrendChart';
+import { HealthScore } from '@/components/dashboard/HealthScore';
 import { CATEGORY_SPENDING, MONTHLY_DATA, CATEGORIES } from '@/lib/mockData';
 import { useBudget } from '@/contexts/BudgetContext';
 import { PieChart, Download } from 'lucide-react';
@@ -111,8 +112,9 @@ export default function Reports() {
           </div>
         </div>
 
-        {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Health Score & Charts */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <HealthScore score={financialSummary.healthScore} />
           <SpendingChart data={CATEGORY_SPENDING} />
           <MonthlyTrendChart data={MONTHLY_DATA} />
         </div>
