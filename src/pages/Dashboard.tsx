@@ -73,12 +73,12 @@ export default function Dashboard() {
         {/* Charts Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <SpendingChart data={CATEGORY_SPENDING} />
-          <MonthlyTrendChart data={MONTHLY_DATA} />
+          <RecentTransactions transactions={transactions} />
         </div>
 
         {/* Bottom Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RecentTransactions transactions={transactions} />
+          <MonthlyTrendChart data={MONTHLY_DATA} />
           <SavingsProgress goals={savingsGoals} />
         </div>
       </div>
