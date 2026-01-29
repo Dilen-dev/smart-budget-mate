@@ -2,18 +2,16 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { StatCard } from '@/components/dashboard/StatCard';
 import { HealthScore } from '@/components/dashboard/HealthScore';
 import { RecentTransactions } from '@/components/dashboard/RecentTransactions';
-import { SavingsProgress } from '@/components/dashboard/SavingsProgress';
 import { SpendingChart } from '@/components/dashboard/SpendingChart';
-import { MonthlyTrendChart } from '@/components/dashboard/MonthlyTrendChart';
 import { PendingWithdrawals } from '@/components/dashboard/PendingWithdrawals';
 import { useBudget } from '@/contexts/BudgetContext';
-import { CATEGORY_SPENDING, MONTHLY_DATA } from '@/lib/mockData';
+import { CATEGORY_SPENDING } from '@/lib/mockData';
 import { Wallet, TrendingDown, PiggyBank, SlidersHorizontal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export default function Dashboard() {
-  const { financialSummary, transactions, savingsGoals, getPendingWithdrawals, user } = useBudget();
+  const { financialSummary, transactions, getPendingWithdrawals, user } = useBudget();
   const pendingWithdrawals = getPendingWithdrawals();
 
   const formatCurrency = (amount: number) => `M${amount.toFixed(2)}`;
@@ -74,12 +72,6 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <SpendingChart data={CATEGORY_SPENDING} />
           <RecentTransactions transactions={transactions} />
-        </div>
-
-        {/* Bottom Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <MonthlyTrendChart data={MONTHLY_DATA} />
-          <SavingsProgress goals={savingsGoals} />
         </div>
       </div>
     </MainLayout>
